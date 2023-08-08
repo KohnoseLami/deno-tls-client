@@ -72,6 +72,7 @@ if (!(await exists(path))) {
   if (!res.ok) {
     throw new Error(`Failed to download ${url}: ${res.status} ${res.statusText}`);
   }
+  await Deno.mkdir(dirname(path), { recursive: true });
   await Deno.writeFile(path, new Uint8Array(await res.arrayBuffer()));
 }
 
