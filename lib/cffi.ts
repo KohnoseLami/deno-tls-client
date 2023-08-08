@@ -3,6 +3,9 @@ import {
   dirname,
   join,
 } from "https://deno.land/std@0.197.0/path/mod.ts";
+import {
+  exists,
+} from "https://deno.land/std@0.197.0/fs/mod.ts";
 
 const basePath = join(dirname(fromFileUrl(import.meta.url)), 'dependencies', 'tls-client-xgo-1.5.0-');
 
@@ -61,6 +64,15 @@ switch (Deno.build.os) {
 
 if (!path) {
   throw new Error(`Unsupported platform: ${Deno.build.os} ${Deno.build.arch}`);
+}
+
+if (!(await exists(path))) {
+  const url = `https://github.com/bogdanfinn/tls-client/releases/download/v1.5.0/${path.split('\\').pop()}`;
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`Failed to download ${url}: ${res.status} ${res.statusText}`);
+  }
+  await Deno.writeFile(path, new Uint8Array(await res.arrayBuffer()));
 }
 
 export const library = Deno.dlopen(path, {
