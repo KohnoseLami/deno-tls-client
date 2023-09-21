@@ -66,7 +66,7 @@ if (!path) {
 }
 
 if (!(await exists(path))) {
-  const url = `https://github.com/bogdanfinn/tls-client/releases/download/v1.5.0/${path.split('\\').pop()}`;
+  const url = `https://github.com/bogdanfinn/tls-client/releases/download/v1.6.1/${path.split('\\').pop()}`;
   const res = await fetch(url);
   if (!res.ok) {
     throw new Error(`Failed to download ${url}: ${res.status} ${res.statusText}`);

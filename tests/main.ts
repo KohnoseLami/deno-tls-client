@@ -1,4 +1,5 @@
-import TlsClient from "../mod.ts";
+// import TlsClient from "../mod.ts";
+import TlsClient from "https://deno.land/x/tls_client/mod.ts"
 
 let response = await TlsClient.get("https://httpbin.org/get", {
   params: {
