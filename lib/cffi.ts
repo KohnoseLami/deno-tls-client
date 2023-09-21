@@ -1,5 +1,4 @@
 import {
-  fromFileUrl,
   dirname,
   join,
 } from "https://deno.land/std@0.197.0/path/mod.ts";
@@ -7,7 +6,7 @@ import {
   exists,
 } from "https://deno.land/std@0.197.0/fs/mod.ts";
 
-const basePath = join(dirname(fromFileUrl(import.meta.url)), 'dependencies', 'tls-client-xgo-1.5.0-');
+const basePath = join(Deno.env.get('HOME') || Deno.env.get('USERPROFILE') || '', '.cache', 'deno-tls-client', 'dependencies', 'tls-client-xgo-1.5.0-');
 
 const depPaths = {
   darwin: {
