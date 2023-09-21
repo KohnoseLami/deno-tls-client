@@ -6,7 +6,7 @@ import {
   exists,
 } from "https://deno.land/std@0.197.0/fs/mod.ts";
 
-const basePath = join(Deno.env.get('HOME') || Deno.env.get('USERPROFILE') || '', '.cache', 'deno-tls-client', 'dependencies', 'tls-client-xgo-1.5.0-');
+const basePath = join(Deno.env.get('HOME') || Deno.env.get('USERPROFILE') || '', '.cache', 'deno-tls-client', 'dependencies', 'tls-client-xgo-1.6.1-');
 
 const depPaths = {
   darwin: {

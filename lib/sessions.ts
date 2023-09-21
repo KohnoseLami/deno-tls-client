@@ -29,7 +29,7 @@ export class Session {
   public forceHttp1 = false;
   public headerOrder: string[] = [];
   public headers: { [key: string]: string } = {
-    'user-agent': `tls-client/0.0.1 (https://github.com/kohnoselami/deno-tls-client)`,
+    'user-agent': `tls-client/0.0.3 (https://github.com/kohnoselami/deno-tls-client)`,
   };
   public insecureSkipVerify?: boolean;
   public isByteRequest?: boolean;
